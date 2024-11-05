@@ -13,8 +13,16 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./load": "./src/load.ts"
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./load": {
+      "import": "./src/load.ts",
+      "require": "./src/load.ts",
+      "types": "./src/load.ts"
+    }
   },
   "files": [
     "dist/binaries/**",

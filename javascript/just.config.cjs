@@ -70,6 +70,12 @@ task('prepack-package-json', async () => {
     './dist/src/$1.js',
   );
 
+  Object.values(packageJson.exports).forEach(value => {
+    if (value.types) {
+      value.types = value.types.replace(/(.*)\.js/, '$1.d.ts');
+    }
+  });
+
   await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2));
 });
 
